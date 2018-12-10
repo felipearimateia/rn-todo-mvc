@@ -3,7 +3,7 @@
 * @flow
 */
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, FlatList } from 'react-native'
 import { inject, observer } from 'mobx-react/native'
 
 
@@ -13,12 +13,24 @@ import controller from './Controller'
 
 type Props = {}
 
+@inject('todos')
+@observer
 export default class Todos extends Component<Props> {
-  render () {
+
+  renderItem = (item) => {
     return (
-      <View style={{flex: 1}}>
-        <Text>Olá MVC</Text>
-      </View>
+      <Text>item</Text>
+    )
+  }
+  render () {
+    console.log(JSON.stringify((controller.items)))
+    return (
+     <View>
+      <FlatList
+        data={this.props.todos.items}
+        renderItem={this.renderItem}
+      />
+     </View>
     )
   }
 }
