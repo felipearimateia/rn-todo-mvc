@@ -13,13 +13,12 @@ import controller from './Controller'
 
 type Props = {}
 
-@inject('todos')
 @observer
 export default class Todos extends Component<Props> {
 
-  renderItem = (item) => {
+  renderItem = ({ item }) => {
     return (
-      <Text>item</Text>
+      <Text>{item}</Text>
     )
   }
   render () {
@@ -27,7 +26,8 @@ export default class Todos extends Component<Props> {
     return (
      <View>
       <FlatList
-        data={this.props.todos.items}
+        data={controller.items}
+        keyExtractor={(item, index) => index.toString()}
         renderItem={this.renderItem}
       />
      </View>

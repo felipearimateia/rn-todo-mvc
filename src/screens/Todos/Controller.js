@@ -1,8 +1,15 @@
 
 import { observable, action, computed } from 'mobx'
+import store from '../../stores'
 
-export default class TodoController {
+class TodoController {
 
-  @observable
-  items = ['oi']
+  @computed
+  get items() {
+    return store.todos.items
+  }
+
 }
+
+
+export default new TodoController()

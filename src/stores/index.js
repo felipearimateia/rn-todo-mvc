@@ -7,5 +7,5 @@ import Todos from './todos'
 
 
 export default {
-  todos: Todos
+  todos: new Todos()
 }
