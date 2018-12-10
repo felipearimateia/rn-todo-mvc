@@ -3509,16 +3509,16 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mobx-react@^5.4.2:
+mobx-react@^5.2.3:
   version "5.4.2"
   resolved "https://registry.yarnpkg.com/mobx-react/-/mobx-react-5.4.2.tgz#53db594dbb44752c15b53c355babaa94a6af5934"
   dependencies:
     hoist-non-react-statics "^3.0.0"
     react-lifecycles-compat "^3.0.2"
 
-mobx@^5.7.0:
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.7.0.tgz#dc58cd02fbacc5346071c3e6563b6507aff71f59"
+mobx@^4.3.1:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/mobx/-/mobx-4.7.0.tgz#bd7456783f499e1624895552f267e4334a9858b5"
 
 morgan@^1.9.0:
   version "1.9.1"
