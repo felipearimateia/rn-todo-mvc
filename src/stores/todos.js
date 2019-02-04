@@ -13,7 +13,7 @@ export default class Todo {
 
   @action
   addTodo (todo: string): void {
-    items.push(todo)
+    this.items.push(todo)
   }
 
 }

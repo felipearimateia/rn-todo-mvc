@@ -17,7 +17,9 @@ export default class App extends Component<Props> {
   render() {
     return (
       <Provider {...stores} >
-        <Routes />
+        <SafeAreaView style={{flex: 1}}>
+          <Routes />
+        </SafeAreaView>
       </Provider>
     );
   }

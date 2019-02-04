@@ -3,13 +3,14 @@
 * @flow
 */
 import React, { Component } from 'react'
-import { View, Text, FlatList } from 'react-native'
-import { inject, observer } from 'mobx-react/native'
+import { Button, View, Text, FlatList, TextInput } from 'react-native'
+import { observer } from 'mobx-react/native'
 
 
 /* style and state */
-import style from './style'
+import styles from './style'
 import controller from './Controller'
+import { toJS } from 'mobx';
 
 type Props = {}
 
@@ -18,18 +19,41 @@ export default class Todos extends Component<Props> {
 
   renderItem = ({ item }) => {
     return (
-      <Text>{item}</Text>
+      <View>
+       <Text style={styles.label}>{item}</Text>
+       <View style={styles.line}/>
+      </View>
     )
   }
   render () {
     console.log(JSON.stringify((controller.items)))
     return (
-     <View>
+     <View style={{flex: 1}}>
+
+     <View style={{flex: 1}}>
       <FlatList
         data={controller.items}
+        extraData={toJS(controller.items)}
         keyExtractor={(item, index) => index.toString()}
         renderItem={this.renderItem}
       />
+     </View>
+
+      <View style={styles.contentIpunt}>
+        <TextInput
+          returnKeyType='done'
+          placeholder={'Nova Tarefa'}
+          style={styles.input}
+          value={controller.newTodo}
+          onChangeText={(text) => controller.addTodo(text)}
+        />
+
+        <Button
+          title='Salvar'
+          onPress={()=> {controller.saveTodo()}}
+        />
+     </View>
+
      </View>
     )
   }
