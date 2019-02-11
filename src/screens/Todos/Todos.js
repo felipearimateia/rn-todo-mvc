@@ -3,8 +3,8 @@
 * @flow
 */
 import React, { Component } from 'react'
-import { Button, View, Text, FlatList, TextInput } from 'react-native'
-import { observer } from 'mobx-react/native'
+import { Button, View, Text, FlatList, TextInput, TouchableHighlight } from 'react-native'
+import { observer, inject } from 'mobx-react/native'
 
 
 /* style and state */
@@ -14,15 +14,23 @@ import { toJS } from 'mobx';
 
 type Props = {}
 
+@inject('todos')
 @observer
 export default class Todos extends Component<Props> {
 
+
+  openDetail = (item) => {
+    console.tron.log(item)
+  }
+
   renderItem = ({ item }) => {
     return (
-      <View>
-       <Text style={styles.label}>{item}</Text>
-       <View style={styles.line}/>
-      </View>
+      <TouchableHighlight onPress={()=> this.openDetail(item)}>
+        <View>
+          <Text style={styles.label}>{item}</Text>
+          <View style={styles.line}/>
+        </View>
+      </TouchableHighlight>
     )
   }
   render () {
